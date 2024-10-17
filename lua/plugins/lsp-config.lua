@@ -14,7 +14,7 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities
       })
       lspconfig.cssls.setup({
@@ -56,7 +56,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls", -- lua
-          "tsserver", -- javascript/typescript/react/etc
+          "ts_ls", -- javascript/typescript/react/etc
           "cssls", -- css
           "cssmodules_ls", -- css
           "css_variables", -- css 
