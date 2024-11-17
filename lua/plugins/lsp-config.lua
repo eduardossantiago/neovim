@@ -18,8 +18,7 @@ return {
         capabilities = capabilities
       })
       lspconfig.cssls.setup({
-        capabilities = capabilities
-      })
+        capabilities = capabilities })
       lspconfig.eslint.setup({
         capabilities = capabilities
       })
@@ -39,6 +38,12 @@ return {
         capabilities = capabilities
       })
       lspconfig.sqlls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.docker_compose_language_service.setup({
+        capabilities = capabilities
+      })
+      lspconfig.dockerls.setup({
         capabilities = capabilities
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -73,6 +78,8 @@ return {
           "somesass_ls", -- SASS
           "lemminx", -- XML
           "yamlls", -- YAML
+          "docker_compose_language_service", --DOCKER COMPOSE
+          "dockerls" --docker
         },
       })
     end,
