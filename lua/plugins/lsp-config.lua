@@ -46,6 +46,12 @@ return {
       lspconfig.dockerls.setup({
         capabilities = capabilities
       })
+      lspconfig.basedpyright.setup({
+        capabilities = capabilities
+      })
+      -- lspconfig.pylyzer.setup({
+      --   capabilities = capabilities
+      -- })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
@@ -79,7 +85,9 @@ return {
           "lemminx", -- XML
           "yamlls", -- YAML
           "docker_compose_language_service", --DOCKER COMPOSE
-          "dockerls" --docker
+          "dockerls", --docker
+          -- "pylyzer" -- python
+          
         },
       })
     end,

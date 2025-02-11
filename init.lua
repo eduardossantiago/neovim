@@ -28,3 +28,12 @@ vim.opt.ignorecase = true
 
 -- disable "ignorecase" option if the search pattern contains upper case characters
 vim.opt.smartcase = true
+
+-- enable line count
+vim.opt.number = true
+vim.opt.relativenumber = true
+-- vim.opt.signcolumn = "number"
+vim.o.statuscolumn = "%s %l %r"
+
+
+
