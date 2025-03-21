@@ -36,4 +36,5 @@ vim.opt.relativenumber = true
 vim.o.statuscolumn = "%s %l %r"
 
 
-
+-- Enable the LSP diagnostics on edit mode as well
+vim.diagnostic.config({ update_in_insert = true })
