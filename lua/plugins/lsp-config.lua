@@ -49,13 +49,41 @@ return {
       lspconfig.basedpyright.setup({
         capabilities = capabilities
       })
-      -- lspconfig.pylyzer.setup({
-      --   capabilities = capabilities
-      -- })
+      lspconfig.gopls.setup({
+        capabilities = capabilities
+      })
+
+      --vim.keymap.set({ "n" }, "<leader>vws", vim.lsp.buf.workspace_symbol, {})
+
+      -- Show doc of a function/class/etc
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+
+      -- Go to definition of a function/variable/etc
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+
+      -- Open code actions window
       vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
-      vim.keymap.set({ "n" }, '<leader>e', vim.diagnostic.goto_next, {})
+
+      --Jump to the next error and shows the error
+      vim.keymap.set({ "n" }, '[e', vim.diagnostic.goto_next, {})
+
+      --Jump to the next error and shows the error
+      vim.keymap.set({ "n" }, ']e', vim.diagnostic.goto_prev, {})
+
+      -- Show the error under cursor
+      vim.keymap.set({ "n" }, '<leader>e', vim.diagnostic.open_float, {})
+
+      -- While in insert mode, shows the signature of a function
+      vim.keymap.set({ "i" }, '<C-h>', vim.lsp.buf.signature_help, {})
+
+      -- rename variable/function
+      vim.keymap.set({ "n" }, '<leader>rr', vim.lsp.buf.rename, {})
+
+      -- Find references to a function or variable:
+      -- vim.keymap.set({ "n" }, '<leader>', vim.lsp.buf.references, {})
+      vim.keymap.set('n', '<leader>fr', function()
+          require('telescope.builtin').lsp_references()
+      end, { noremap = true, silent = true })
     end,
   },
   {
@@ -87,6 +115,7 @@ return {
           "yamlls", -- YAML
           "docker_compose_language_service", --DOCKER COMPOSE
           "dockerls", --docker
+          "gopls",
           -- "pylyzer" -- python
         },
       })
