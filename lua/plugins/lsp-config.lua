@@ -52,6 +52,12 @@ return {
       lspconfig.gopls.setup({
         capabilities = capabilities
       })
+      lspconfig.gopls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.bashls.setup({
+        capabilities = capabilities
+      })
 
       --vim.keymap.set({ "n" }, "<leader>vws", vim.lsp.buf.workspace_symbol, {})
 
@@ -74,10 +80,13 @@ return {
       vim.keymap.set({ "n" }, '<leader>e', vim.diagnostic.open_float, {})
 
       -- While in insert mode, shows the signature of a function
-      vim.keymap.set({ "i" }, '<C-h>', vim.lsp.buf.signature_help, {})
+      vim.keymap.set({ "i", "n" }, '<C-h>', vim.lsp.buf.signature_help, {})
 
       -- rename variable/function
       vim.keymap.set({ "n" }, '<leader>rr', vim.lsp.buf.rename, {})
+
+      -- format file
+      vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 
       -- Find references to a function or variable:
       -- vim.keymap.set({ "n" }, '<leader>', vim.lsp.buf.references, {})
@@ -115,7 +124,8 @@ return {
           "yamlls", -- YAML
           "docker_compose_language_service", --DOCKER COMPOSE
           "dockerls", --docker
-          "gopls",
+          "gopls", -- golang
+          "bashls", -- bash
           -- "pylyzer" -- python
         },
       })

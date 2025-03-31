@@ -7,6 +7,10 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
+    -- Open Neo-tree (Project Files)
     vim.keymap.set('n', '<C-g>n', ':Neotree filesystem reveal left<CR>', {})
+
+    -- Open current file on Neo-tree
+    -- vim.keymap.set('n', '<leader>cf', ':Neotree reveal<CR>', {})
   end
 }

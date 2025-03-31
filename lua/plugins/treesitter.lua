@@ -14,7 +14,9 @@ return {
         "java",
         "dart",
         "css",
-        "typescript"
+        "typescript",
+        "bash",
+        "markdown_inline"
       },
       auto_install = true,
       highlight = { enable = true },
